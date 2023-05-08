@@ -4,7 +4,7 @@
   "description": "Soft Uni JS Web module",
   "main": "src/index.js",
   "scripts": {
-    "start": "node ./scr/index.js",
+    "start": "SET node_env=production&& node ./src/index.js",
     "dev": "nodemon ./src/index.js"
   },
   "keywords": [],
@@ -12,5 +12,8 @@
   "license": "ISC",
   "devDependencies": {
     "nodemon": "^2.0.22"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
   }
 }
