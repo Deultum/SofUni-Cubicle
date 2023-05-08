@@ -8,7 +8,10 @@ const setupViewEngine = require('./config/viewEngine');
 const server = express();
 setupViewEngine(server);
 
+
+
 server.use(express.static('./src/public'));
+server.use(express.urlencoded({extended: false}));
 server.use(routes)
 
 
