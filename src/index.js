@@ -8,7 +8,7 @@ const setupViewEngine = require('./config/viewEngine');
 const server = express();
 setupViewEngine(server);
 
-
+server.use(express.static('./src/public'));
 
 
 server.get('/', (req, res) => {
