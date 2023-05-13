@@ -27,8 +27,13 @@
       "description": "Standard",
       "imageUrl": "https://johnlewis.scene7.com/is/image/JohnLewis/231387126alt5?$rsp-pdp-port-640-82$",
       "difficultyLevel": "4"
+    },
+    {
+      "name": "Powerful",
+      "description": "makes 100 splash damage",
+      "imageUrl": "https://tokegameart.net/wp-content/uploads/2016/06/Boky-01.jpg",
+      "difficultyLevel": "6",
+      "id": 5
     }
-  
-   
   ]
 }
