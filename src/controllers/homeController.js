@@ -7,7 +7,14 @@ exports.getHomepage = (req, res) => {
     if (search) {
         cubes = cubes.filter(cube => cube.name.toLowerCase().includes(search.toLowerCase()));
     }
-    res.render('index', { cubes, search });
+    if(from){
+        cubes = cubes.filter(cube => cube.difficultyLevel >= from);
+    };
+
+    if(to){
+        cubes = cubes.filter(cube => cube.difficultyLevel <= to);
+    };
+    res.render('index', { cubes, search, from, to });
 };
 
 
