@@ -1,4 +1,4 @@
-//const Cube = require('../models/Cube_old');
+
 
 const Cube = require('../models/Cube');
 
@@ -25,4 +25,9 @@ exports.getDetails = async (req, res) => {
         return res.redirect('/404');
     };
     res.render('details', { cube });
+};
+
+exports.getAttachAccessory = async (req, res) => {
+    const cube = await Cube.findById(req.params.cubeId).lean();
+    res.render('cube/attach', {cube});
 }
