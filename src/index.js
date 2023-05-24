@@ -1,4 +1,5 @@
 const express = require('express');
+const cookieParser = require('cookie-parser');
 
 
 const routes = require('./routes');
@@ -13,6 +14,7 @@ setupViewEngine(server);
 
 
 server.use(express.static('./src/public'));
+server.use(cookieParser());
 server.use(express.urlencoded({extended: false}));
 server.use(routes)
 
