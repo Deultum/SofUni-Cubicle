@@ -5,17 +5,24 @@ const cubeSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    description:{
+    description: {
         type: String,
         required: true,
         maxLength: 50,
     },
-    imageUrl:{
+    imageUrl: {
         type: String,
-        required: true, 
+        required: true,
         //add http/https validation
+        // match: /^https?:\/\//,
+        validate: {
+            validator: function (value) {
+                return value.startsWith('http://') || value.startsWith('https://')
+            },
+            message: 'URL is invalid'
+        }
     },
-    difficultyLevel:{
+    difficultyLevel: {
         type: Number,
         required: true,
         max: 6,
