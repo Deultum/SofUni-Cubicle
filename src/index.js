@@ -4,6 +4,7 @@ const cookieParser = require('cookie-parser');
 
 const routes = require('./routes');
 const config = require('./config/config');
+const authMiddleware = require('./middlewares/authMiddleware');
 const setupViewEngine = require('./config/viewEngine');
 const initDatabase = require('./config/databaseinit');
 
@@ -16,6 +17,7 @@ setupViewEngine(server);
 server.use(express.static('./src/public'));
 server.use(cookieParser());
 server.use(express.urlencoded({extended: false}));
+server.use(authMiddleware.authentication);
 server.use(routes)
 
 initDatabase()

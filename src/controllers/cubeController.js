@@ -2,28 +2,16 @@
 
 const Cube = require('../models/Cube');
 const Accessory = require('../models/Accessory');
-const jwt = require('../lib/jsonWebToken');
-const config = require('../config/config');
+
 
 exports.getCreateCube = (req, res) => {
+    
+    console.log(req.user);
     res.render('create');
 };
 
 exports.postCreateCube = async (req, res) => {
 
-    const token = req.cookies['auth'];
-
-    if (!token) {
-        res.redirect('/404');
-    }
-    try {
-
-        const decodedToken = await jwt.verify(token, config.SECRET);
-    } catch (err) {
-        console.log(err);
-       return  res.redirect('/404');
-
-    }
 
     const { name, description, imageUrl, difficultyLevel } = req.body
     //save cube 
