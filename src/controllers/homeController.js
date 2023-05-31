@@ -5,7 +5,6 @@ exports.getHomepage = async (req, res) => {
     const { search, from, to } = req.query;
     let cubes = await Cube.find().lean();
 
-    //TODO use DB filtration instead of memory filtering 
 
     if (search) {
         cubes = cubes.filter(cube => cube.name.toLowerCase().includes(search.toLowerCase()));

@@ -5,7 +5,9 @@ const userSchema = new mongoose.Schema({
     username: {
         type: String,
         required: true,
-        minLength: 3,
+        minLength: [5, 'Username is too short'],
+        unique: true,
+        validate: /^[a-zA-Z0-9]+$/ 
     },
     password: {
         type: String,
@@ -13,6 +15,8 @@ const userSchema = new mongoose.Schema({
         minLength: [6, 'Password is too short'],
     }
 });
+
+
 
 userSchema.pre('save', function (next) {
     bcrypt.hash(this.password, 10)
